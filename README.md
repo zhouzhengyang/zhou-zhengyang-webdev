@@ -9,11 +9,14 @@ The purpose of this repository is for CS4550 Web Development Class; and for
 Heroku to connect with this repository to generate Web App.
 
 # Links
-Root to the hosted environment on Heroku:
+Root to the hosted environment on Heroku:  
 https://zhou-zhengyang-webdev.herokuapp.com/
-Link to your project: (I'll come back to this)
 
-Link to your assignment: (I'll come back to this)
+Link to your project:  
+(I'll come back to this)
+
+Link to your assignment:  
+(I'll come back to this)
 
 
 # Web-dev-template
