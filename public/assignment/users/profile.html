@@ -4,25 +4,19 @@
     <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet"/>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>profile</title>
 </head>
 <body>
 
 
-<nav class="navbar navbar-default navbar-fixed-top navbar-collapse">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="../users/profile.html">
-                    Profile
-                </a>
-            </div>
-
             <div class="navbar-header navbar-right">
                 <a class="navbar-brand col-lg-12 col-md-12 col-sm-12 col-xs-12" href="../users/profile.html">
-                    <span class="glyphicon glyphicon-ok pull-xs-right"></span>
+                    <span class="glyphicon glyphicon-ok pull-right"></span>
                 </a>
             </div>
-        </div>
     </div>
 </nav>
 
@@ -33,19 +27,19 @@
     <input readonly value="Your Username" id="username" class="form-control"/>
 
     <label for="password">Password</label>
-    <input id="password" type="password" class="form-control"/>
+    <input id="password" type="password" class="form-control" placeholder="please enter your password"/>
 
     <label for="vpassword">Verify Password</label>
-    <input id="vpassword" type="password" class="form-control"/>
+    <input id="vpassword" type="password" class="form-control" placeholder="please verify your password"/>
 
     <label for="first">First</label>
-    <input id="first"class="form-control"/>
+    <input id="first"class="form-control" placeholder="please enter your first name"/>
 
     <label for="last">Last</label>
-    <input id="last"class="form-control"/>
+    <input id="last"class="form-control" placeholder="please enter your last name"/>
 
     <label for="email">Email</label>
-    <input id="email" type="email" class="form-control"/>
+    <input id="email" type="email" class="form-control" placeholder="please enter your email address"/>
 
     <a href="../website/website-list.html" class="btn btn-block btn-primary">Website-List</a>
     <a href="login.html" class="btn btn-block btn-danger">Logout</a>
