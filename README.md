@@ -8,6 +8,9 @@ second coop on July 2017.
 The purpose of this repository is for CS4550 Web Development Class; and for
 Heroku to connect with this repository to generate Web App.
 
+# Project Proposal
+See Wiki
+
 # Links
 Root to the hosted environment on Heroku:  
 https://zhou-zhengyang-webdev.herokuapp.com/
