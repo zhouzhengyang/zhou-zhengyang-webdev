@@ -40,6 +40,7 @@
             var page = {name: name,
                 description: description}
             pageService.updateWebsite(pageId, page);
+            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
         }
 
         function deletePage(pageId) {

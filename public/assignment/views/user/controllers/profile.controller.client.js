@@ -14,7 +14,7 @@
         model.update = update;
 
         // implementation
-        function update(userId, username, firstName, lastName, password, password2) {
+        function update(firstName, lastName, password, password2) {
 
             if(password !== password2) {
                 model.error = "Passwords must match";
@@ -27,7 +27,6 @@
                 model.error = "Username is not available";
             } else {
                 var user = {
-                    username: username,
                     firstName: firstName,
                     lastName: lastName,
                     password: password
