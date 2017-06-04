@@ -13,12 +13,11 @@
 
         model.trust = trust;
         model.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
-        model.editWidget = editWidget;
 
         function init () {
             model.widgets = widgetService.findWidgetsByPageId(model.pageId)
         }
-        init()
+        init();
 
         function getYouTubeEmbedUrl(linkUrl) {
             var embedUrl = "https://www.youtube.com/embed/";
@@ -30,14 +29,6 @@
         function trust(html) {
             // scrubbing the html
             return $sce.trustAsHtml(html);
-        }
-
-        function editWidget (widget) {
-            if (widget.widgetType === 'HTML') {
-                $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget/' + widget._id + '/' + 'heading')
-            } else {
-                $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget/' + widget._id + '/' + (widget.widgetType).toLowerCase())
-            }
         }
     }
 })();

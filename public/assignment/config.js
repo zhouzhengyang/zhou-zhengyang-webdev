@@ -53,6 +53,7 @@
                 controller: 'pageEditController',
                 controllerAs: 'model'
             })
+
             .when('/user/:userId/website/:websiteId/page/:pageId/widget', {
                 templateUrl: 'views/widget/templates/widget-list.view.client.html',
                 controller: 'widgetListController',
@@ -63,19 +64,9 @@
                 controller: 'widgetChooseController',
                 controllerAs: 'model'
             })
-            .when('/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId/image', {
-                templateUrl: 'views/widget/templates/widget-image-edit.view.client.html',
-                controller: 'widgetChooseController',
-                controllerAs: 'model'
-            })
-            .when('/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId/heading', {
-                templateUrl: 'views/widget/templates/widget-heading-edit.view.client.html',
-                controller: 'widgetChooseController',
-                controllerAs: 'model'
-            })
-            .when('/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId/youtube', {
-                templateUrl: 'views/widget/templates/widget-youtube-edit.view.client.html',
-                controller: 'widgetChooseController',
+            .when('/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId', {
+                templateUrl: 'views/widget/templates/widget-edit.view.client.html',
+                controller: 'widgetEditController',
                 controllerAs: 'model'
             })
 

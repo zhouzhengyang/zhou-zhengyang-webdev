@@ -1,24 +1,24 @@
 (function () {
     angular
         .module('WAM')
-        .controller('widgetChooseController', widgetChooseController)
+        .controller('widgetEditController', widgetEditController);
 
-    function widgetChooseController ($location, widgetService, $routeParams) {
-
+    function widgetEditController($routeParams,
+                                  $location,
+                                  widgetService) {
         var model = this;
         model.userId = $routeParams['userId'];
         model.websiteId = $routeParams['websiteId'];
         model.pageId = $routeParams['pageId'];
         model.widgetId = $routeParams['widgetId'];
         model.widget = widgetService.findWidgetById(model.widgetId);
+        model.updateWidget = updateWidget
 
-        model.createWidget = createWidget
-
-        function createWidget(awidget){
-            awidget.pageId = model.pageId;
-            widgetService.createWidget(model.pageId,awidget)
+        function updateWidget(awidget){
             console.log(awidget)
+            widgetService.updateWidget(model.widgetId,awidget);
             $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' +model.pageId+'/widget');
+
         }
     }
-})()
+})();

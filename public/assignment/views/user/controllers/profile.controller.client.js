@@ -7,33 +7,31 @@
 
         var model = this;
         var userId = $routeParams['userId'];
+        model.updateUser = updateUser;
+        model.deleteUser = deleteUser;
 
-        model.user = userService.findUserById(userId);
+        userService
+            .findUserById(userId)
+            .then(renderUser);
 
-        // event handlers
-        model.update = update;
+        function renderUser (user) {
+            model.user = user;
+        }
 
-        // implementation
-        function update(firstName, lastName, password, password2) {
+        function deleteUser(user) {
+            userService
+                .deleteUser(user._id)
+                .then(function () {
+                    $location.url('/login');
+                });
+        }
 
-            if(password !== password2) {
-                model.error = "Passwords must match";
-                return;
-            }
-
-            var found = userService.findUserById(userId);
-
-            if(found !== null) {
-                model.error = "Username is not available";
-            } else {
-                var user = {
-                    firstName: firstName,
-                    lastName: lastName,
-                    password: password
-                };
-                userService.updateUser(userId, user);
-                $location.url('/user/' + user._id);
-            }
+        function updateUser(user) {
+            userService
+                .updateUser(user._id, user)
+                .then(function () {
+                    model.message = "User updated successfully";
+                });
         }
     }
 })();

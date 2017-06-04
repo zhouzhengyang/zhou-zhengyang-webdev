@@ -20,16 +20,19 @@
 
     <label for="name">Name</label>
     <input id="name"
+           ng-model="model.widget.name"
            class="form-control"
            placeholder="please enter the name"/>
 
     <label for="text">Text</label>
     <input id="text"
+           ng-model="model.widget.text"
            class="form-control"
            placeholder="please enter the text"/>
 
     <label for="url">URL</label>
     <input id="url"
+           ng-model="model.widget.url"
            class="form-control"
            placeholder="please enter the URL"/>
 
@@ -54,4 +57,5 @@
     </a>
 
 </div>
+
 <div ng-include="'views/common/footer.view.client.html'"></div>
