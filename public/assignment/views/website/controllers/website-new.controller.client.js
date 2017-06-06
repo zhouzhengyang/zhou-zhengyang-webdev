@@ -14,15 +14,21 @@
         model.createWebsite = createWebsite;
 
         function init() {
-            model.websites = websiteService.findAllWebsitesForUser(model.userId);
-        }
+            websiteService
+                .findAllWebsitesForUser(model.userId)
+                .then(function (websites) {
+                    model.websites = websites
+                });        }
         init();
 
         // implementation
         function createWebsite(website) {
             website.developerId = model.userId;
-            websiteService.createWebsite(website);
-            $location.url('/user/'+model.userId+'/website');
+            websiteService
+                .createWebsite(model.userId, website)
+                .then(function () {
+                    $location.url('/user/'+model.userId+'/website');
+                })
         }
     }
 })();
