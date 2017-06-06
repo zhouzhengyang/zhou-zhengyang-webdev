@@ -35,7 +35,15 @@
            class="form-control"
            placeholder="please enter the size"/>
 
-    <a class="btn btn-danger btn-block" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+    <a class="btn btn-primary btn-block" ng-click="model.createWidget(model.widget)">
+        Create
+    </a>
+
+    <a class="btn btn-warning btn-block" ng-click="model.updateWidget(model.widget)">
+        Update
+    </a>
+
+    <a class="btn btn-danger btn-block" ng-click="model.deleteWidget(model.widgetId)">
         Delete
     </a>
 

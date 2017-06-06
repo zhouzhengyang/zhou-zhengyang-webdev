@@ -1,5 +1,47 @@
 <div ng-include="'views/common/commonHeader.view.client.html'"></div>
 
+<!--<div class="container-fluid">-->
+    <!--<div class="row">-->
+        <!--<div class="col-sm-4 hidden-xs srollable-left">-->
+            <!--<ul class="list-group">-->
+                <!--<li class="list-group-item list-group-item-info">-->
+                    <!--<div class="row">-->
+                        <!--<div class="col-lg-5 col-md-8 col-sm-10 col-xs-6">-->
+                            <!--<a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">-->
+                                <!--<span class="glyphicon glyphicon-chevron-left pull-left"></span>-->
+                            <!--</a>-->
+                            <!--Widget Type-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<ul class="list-group" ng-model="model.widget.widgetType" id="type" class="form-control">-->
+                    <!--<li value="HEADING" class="list-group-item">Header</li>-->
+                    <!--<li value="HEADING" class="list-group-item">HTML</li>-->
+                    <!--<li value="IMAGE" class="list-group-item">IMAGE</li>-->
+                    <!--<li value="YOUTUBE" class="list-group-item">YOUTUBE</li>-->
+                <!--</ul>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+        <!--<div ng-switch="model.widget.widgetType">-->
+            <!--<div ng-switch-when="HEADING">-->
+                <!--<div ng-include src="'views/widget/templates/widget-heading-edit.view.client.html'"></div>-->
+            <!--</div>-->
+
+            <!--<div ng-switch-when="IMAGE">-->
+                <!--<div ng-include src="'views/widget/templates/widget-image-edit.view.client.html'"></div>-->
+            <!--</div>-->
+            <!--<div ng-switch-when="YOUTUBE">-->
+                <!--<div ng-include src="'views/widget/templates/widget-youtube-edit.view.client.html'"></div>-->
+            <!--</div>-->
+            <!--<div ng-switch-when="HTML">-->
+                <!--<div ng-include src="'views/widget/templates/widget-heading-edit.view.client.html'"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
+
 <div class="container-fluid">
     <label for="type">Widget Type</label>
     <select ng-model="model.widget.widgetType"id="type"class="form-control">
@@ -13,7 +55,6 @@
         <div ng-switch-when="HEADING">
             <div ng-include src="'views/widget/templates/widget-heading-edit.view.client.html'"></div>
         </div>
-
         <div ng-switch-when="IMAGE">
             <div ng-include src="'views/widget/templates/widget-image-edit.view.client.html'"></div>
         </div>
@@ -26,121 +67,6 @@
     </div>
 </div>
 
-<!--<div class="container-fluid">-->
-    <!--<ul class="list-group">-->
-        <!--<li class="list-group-item list-group-item-info">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">-->
-                    <!--<a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">-->
-                        <!--<span class="glyphicon glyphicon-chevron-left pull-left"></span>-->
-                    <!--</a>-->
-                    <!--Choose Widget-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-
-        <!--<li class="list-group-item">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">-->
-                    <!--<a ng-click="model.createWidget('header')">-->
-                        <!--Header-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-
-        <!--<li class="list-group-item">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">-->
-                    <!--<a ng-click="model.createWidget('header')">-->
-                        <!--Lable-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-
-        <!--<li class="list-group-item">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">-->
-                    <!--<a ng-click="model.createWidget('header')">-->
-                        <!--HTML-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-
-        <!--<li class="list-group-item">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">-->
-                    <!--<a ng-click="model.createWidget('header')">-->
-                        <!--Text Input-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-
-        <!--<li class="list-group-item">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">-->
-                    <!--<a ng-click="model.createWidget('header')">-->
-                        <!--Link-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-
-        <!--<li class="list-group-item">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">-->
-                    <!--<a ng-click="model.createWidget('header')">-->
-                        <!--Button-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-
-        <!--<li class="list-group-item">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">-->
-                    <!--<a ng-click="model.createWidget('image')">-->
-                        <!--Image-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-
-        <!--<li class="list-group-item">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">-->
-                    <!--<a ng-click="model.createWidget('youtube')">-->
-                        <!--Youtube-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-
-        <!--<li class="list-group-item">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">-->
-                    <!--<a ng-click="model.createWidget('header')">-->
-                        <!--Data Table-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-
-        <!--<li class="list-group-item">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">-->
-                    <!--<a ng-click="model.createWidget('header')">-->
-                        <!--Repeater-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-
-    <!--</ul>-->
-<!--</div>-->
 
 <div ng-include="'views/common/footer.view.client.html'"></div>
 

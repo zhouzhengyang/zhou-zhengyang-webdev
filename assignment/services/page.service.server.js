@@ -49,7 +49,7 @@ function createPage(req, res) {
     page.created = new Date();
     page.updated = new Date();
     pages.push(page);
-    res.send(page)
+    res.send(page);
 }
 
 function findAllPagesForWebsite(req, res) {
