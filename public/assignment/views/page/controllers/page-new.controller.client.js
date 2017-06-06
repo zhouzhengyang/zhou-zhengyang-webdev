@@ -15,16 +15,22 @@
         model.createPage = createPage;
 
         function init() {
-            model.pages = pageService.findPageByWebsiteId(model.websiteId);
+            pageService
+                .findPageByWebsiteId(model.websiteId)
+                .then(function (pages) {
+                    model.pages = pages;
+                });
         }
         init();
 
         // implementation
         function createPage(page) {
             page.websiteId = model.websiteId;
-            pageService.createPage(page);
-            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
-
+            pageService
+                .createPage(model.websiteId, page)
+                .then(function () {
+                    $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
+                })
         }
     }
 })();
