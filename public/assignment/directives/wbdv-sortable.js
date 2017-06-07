@@ -1,9 +1,9 @@
 (function () {
     angular
-        .module('wbdvDirectives', [])
-        .directive('wbdvSortable', wbdvSortable);
+        .module('Directives', [])
+        .directive('wbSortable', wbSortable);
 
-    function wbdvSortable(widgetService, $routeParams) {
+    function wbSortable(widgetService, $routeParams) {
         var model = this;
         model.pageId = $routeParams['pageId'];
         function linkFunction(scope, element) {

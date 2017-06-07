@@ -24,16 +24,16 @@ var widgets =
 
     function sortWidget(req, res) {
         var pageId = req.params['pageId'];
-        var start = req.query['initial'];
-        var end = req.query['final'];
+        var from = req.query['initial'];
+        var to = req.query['final'];
         var origin = [];
         for (var w in widgets) {
             if (widgets[w].pageId === pageId) {
                 origin.push(w);
             }
         }
-        var previndex = origin[start];
-        var curindex = origin[end];
+        var previndex = origin[from];
+        var curindex = origin[to];
         var widget = widgets[previndex];
         widgets.splice(previndex, 1);
         widgets.splice(curindex, 0, widget);
