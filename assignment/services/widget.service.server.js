@@ -1,10 +1,13 @@
 var app = require('../../express');
+var multer = require('multer'); // npm install multer --save
+var upload = multer({ dest: __dirname+'/../../public/assignment/uploads'});
 
 app.get   ('/api/page/:pageId/widget', findAllWidgetsForPage);
 app.get   ('/api/widget/:widgetId', findWidgetById);
 app.post  ('/api/page/:pageId/widget', createWidget);
 app.put   ('/api/widget/:widgetId', updateWidget);
 app.delete('/api/widget/:widgetId', deleteWidget);
+app.post  ("/api/upload", upload.single('myFile'), uploadImage);
 
 
 var widgets =
@@ -17,6 +20,51 @@ var widgets =
         { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%", "url": "https://youtu.be/AM2Ivdi9c4E" },
         { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
     ];
+
+    function uploadImage(req, res) {
+
+        var widgetId      = req.body.widgetId;
+        var width         = req.body.width;
+        var myFile        = req.file;
+
+        var userId = req.body.userId;
+        var websiteId = req.body.websiteId;
+        var pageId = req.body.pageId;
+
+        var originalname  = myFile.originalname; // file name on user's computer
+        var filename      = myFile.filename;     // new file name in upload folder
+        var path          = myFile.path;         // full path of uploaded file
+        var destination   = myFile.destination;  // folder where file is saved to
+        var size          = myFile.size;
+        var mimetype      = myFile.mimetype;
+        var temp = false;
+
+        var widget = {"_id":widgetId,
+                      "widgetType" :"IMAGE",
+                      "pageId" :pageId,
+                      "width" : width,
+                      "url" :"/assignment/uploads/"+filename}
+
+        if (widgetId === "") {
+            widget._id = widgets[widgets.length-1]._id+1+"";
+        }
+
+        for (var w in widgets) {
+            if (widgetId === widgets[w]._id) {
+                widgets[w] = widget;
+                temp = true;
+            }
+        }
+
+        if(!temp){
+            widgets.push(widget);
+        }
+
+        var callbackUrl = "/assignment/index.html#!/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget";
+
+        res.redirect(callbackUrl);
+    }
+
 
 function findAllWidgetsForPage(req, res) {
     var resultSet = [];
