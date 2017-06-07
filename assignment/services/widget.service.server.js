@@ -8,6 +8,7 @@ app.post  ('/api/page/:pageId/widget', createWidget);
 app.put   ('/api/widget/:widgetId', updateWidget);
 app.delete('/api/widget/:widgetId', deleteWidget);
 app.post  ("/api/upload", upload.single('myFile'), uploadImage);
+app.put   ('/page/:pageId/widget', sortWidget);
 
 
 var widgets =
@@ -20,6 +21,25 @@ var widgets =
         { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%", "url": "https://youtu.be/AM2Ivdi9c4E" },
         { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
     ];
+
+    function sortWidget(req, res) {
+        var pageId = req.params['pageId'];
+        var start = req.query['initial'];
+        var end = req.query['final'];
+        var origin = [];
+        for (var w in widgets) {
+            if (widgets[w].pageId === pageId) {
+                origin.push(w);
+            }
+        }
+        var previndex = origin[start];
+        var curindex = origin[end];
+        var widget = widgets[previndex];
+        widgets.splice(previndex, 1);
+        widgets.splice(curindex, 0, widget);
+        res.sendStatus(200);
+    }
+
 
     function uploadImage(req, res) {
 
@@ -99,12 +119,6 @@ function updateWidget(req, res) {
         return widgetId === widget._id
     })
     if (widget !== null) {
-        if (widget.widgetType === "HEADING") {
-            widget.text = req.body['text']
-            widget.size = req.body['size']
-            res.sendStatus(200)
-            return
-        }
         if (widget.widgetType === "IMAGE") {
             widget.url = req.body['url']
             widget.width = req.body['width']
@@ -114,6 +128,12 @@ function updateWidget(req, res) {
         if (widget.widgetType === "YOUTUBE") {
             widget.url = req.body['url']
             widget.width = req.body['width']
+            res.sendStatus(200)
+            return
+        }
+        if (widget.widgetType === "HEADING") {
+            widget.text = req.body['text']
+            widget.size = req.body['size']
             res.sendStatus(200)
             return
         }
