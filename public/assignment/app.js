@@ -1,4 +1,4 @@
 (function () {
     angular
-        .module('WAM', ['ngRoute', 'Directives']);
+        .module('WAM', ['ngRoute', 'Directives', 'textAngular']);
 })();

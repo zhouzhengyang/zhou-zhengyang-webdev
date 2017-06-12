@@ -1,0 +1,25 @@
+<div ng-include="'views/common/commonHeader.view.client.html'"></div>
+
+<div class="container-fluid">
+    <div ng-model="model.widget.text"
+        text-angular
+        ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+                ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+                ['indent','outdent'],['html']]">
+    </div>
+
+    <a class="btn btn-primary btn-block" ng-click="model.createWidget(model.widget)">
+        Create
+    </a>
+
+    <a class="btn btn-warning btn-block" ng-click="model.updateWidget(model.widget)">
+        Update
+    </a>
+
+    <a class="btn btn-danger btn-block" ng-click="model.deleteWidget(model.widgetId)">
+        Delete
+    </a>
+
+</div>
+
+<div ng-include="'views/common/footer.view.client.html'"></div>

@@ -19,14 +19,19 @@
             var url = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server;
             url += "/" + photo.id + "_" + photo.secret + "_b.jpg";
             var widget = {
-                "widgetType": "IMAGE", "pageId": model.pageId, "width": "100%",
+                "widgetType": "IMAGE", "_page": model.pageId, "width": "100%",
                 "url": url
             };
-            widget._id = model.widgetId;
-            widgetService
-                .createWidget(model.pageId, widget)
-                .then(
-                    $location.url('/user/' + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + widget._id));
+            if(typeof model.widgetId === 'undefined'){
+                widgetService.createWidget(model.pageId, widget)
+                    .then(function(widget){
+                        $location.url('/user/' + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + widget._id);
+                    })
+            } else {
+                widgetService.updateWidget(model.widgetId,widget)
+                    .then(function(widget){
+                        $location.url('/user/' + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + model.widgetId);
+                    })}
         }
 
         function searchPhotos (searchTerm) {
