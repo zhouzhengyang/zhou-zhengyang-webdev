@@ -1,47 +1,5 @@
 <div ng-include="'views/common/commonHeader.view.client.html'"></div>
 
-<!--<div class="container-fluid">-->
-    <!--<div class="row">-->
-        <!--<div class="col-sm-4 hidden-xs srollable-left">-->
-            <!--<ul class="list-group">-->
-                <!--<li class="list-group-item list-group-item-info">-->
-                    <!--<div class="row">-->
-                        <!--<div class="col-lg-5 col-md-8 col-sm-10 col-xs-6">-->
-                            <!--<a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">-->
-                                <!--<span class="glyphicon glyphicon-chevron-left pull-left"></span>-->
-                            <!--</a>-->
-                            <!--Widget Type-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</li>-->
-                <!--<ul class="list-group" ng-model="model.widget.widgetType" id="type" class="form-control">-->
-                    <!--<li value="HEADING" class="list-group-item">Header</li>-->
-                    <!--<li value="HEADING" class="list-group-item">HTML</li>-->
-                    <!--<li value="IMAGE" class="list-group-item">IMAGE</li>-->
-                    <!--<li value="YOUTUBE" class="list-group-item">YOUTUBE</li>-->
-                <!--</ul>-->
-            <!--</ul>-->
-        <!--</div>-->
-
-        <!--<div ng-switch="model.widget.widgetType">-->
-            <!--<div ng-switch-when="HEADING">-->
-                <!--<div ng-include src="'views/widget/templates/widget-heading-edit.view.client.html'"></div>-->
-            <!--</div>-->
-
-            <!--<div ng-switch-when="IMAGE">-->
-                <!--<div ng-include src="'views/widget/templates/widget-image-edit.view.client.html'"></div>-->
-            <!--</div>-->
-            <!--<div ng-switch-when="YOUTUBE">-->
-                <!--<div ng-include src="'views/widget/templates/widget-youtube-edit.view.client.html'"></div>-->
-            <!--</div>-->
-            <!--<div ng-switch-when="HTML">-->
-                <!--<div ng-include src="'views/widget/templates/widget-heading-edit.view.client.html'"></div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-    <!--</div>-->
-<!--</div>-->
-
 <div class="container-fluid">
     <label for="type">Widget Type</label>
     <select ng-model="model.widget.widgetType"id="type"class="form-control">
@@ -49,7 +7,7 @@
         <option value='IMAGE'>IMAGE</option>
         <option value='HTML'>HTML</option>
         <option value='YOUTUBE'>YOUTUBE</option>
-        <option value="INPUT">INPUT</option>
+        <option value="TEXT">TEXT</option>
     </select>
 
     <div ng-switch="model.widget.widgetType">
@@ -65,31 +23,11 @@
         <div ng-switch-when="HTML">
             <div ng-include src="'views/widget/templates/widget-html-edit.view.client.html'"></div>
         </div>
-        <div ng-switch-when="INPUT">
-            <div ng-include src="'views/widget/templates/widget-input-edit.view.client.html'"></div>
+        <div ng-switch-when="TEXT">
+            <div ng-include src="'views/widget/templates/widget-text-edit.view.client.html'"></div>
         </div>
     </div>
 </div>
-
-<!--<div class="container-fluid">-->
-    <!--<ul class="list-group">-->
-        <!--<li class="list-group-item">-->
-            <!--<a href="" ng-include src="'views/widget/templates/widget-heading-edit.view.client.html'">Header </a>-->
-        <!--</li>-->
-        <!--<li class="list-group-item">-->
-            <!--<a href="" ng-include src="'views/widget/templates/widget-heading-edit.view.client.html'">HTML </a>-->
-        <!--</li>-->
-        <!--<li class="list-group-item">-->
-            <!--<a href="" ng-click="model.createWidget('TEXT')">Text Input </a>-->
-        <!--</li>-->
-        <!--<li class="list-group-item">-->
-            <!--<a href="" ng-include src="'views/widget/templates/widget-image-edit.view.client.html'">Image </a>-->
-        <!--</li>-->
-        <!--<li class="list-group-item">-->
-            <!--<a href="" ng-include src="'views/widget/templates/widget-youtube-edit.view.client.html'">YouTube </a>-->
-        <!--</li>-->
-    <!--</ul>-->
-<!--</div>-->
 
 
 <div ng-include="'views/common/footer.view.client.html'"></div>

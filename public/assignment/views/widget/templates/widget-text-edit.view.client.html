@@ -1,0 +1,47 @@
+<div ng-include="'views/common/commonHeader.view.client.html'"></div>
+
+<div class="container-fluid">
+
+    <div class="form-group">
+        <label for="text">Text</label>
+        <input ng-model="model.widget.text"
+               class="form-control"
+               id="text">
+    </div>
+    <div class="form-group">
+        <label for="rows">Rows</label>
+        <input ng-model="model.widget.rows" type="number" class="form-control" id="rows">
+    </div>
+    <div class="form-group">
+        <label for="placeholder">Placeholder</label>
+        <input ng-model="model.widget.placeholder" class="form-control" id="placeholder">
+    </div>
+    <div class="form-group">
+        <label for="formatted">Formatted</label>
+        <input ng-model="model.widget.formatted" type="checkbox" id="formatted"/>
+    </div>
+
+
+    <!--Text-->
+    <!--<input ng-model="model.widget.text" class="form-control"/>-->
+    <!--Rows-->
+    <!--<input ng-model="model.widget.rows" class="form-control" type="number"/>-->
+    <!--Placeholder-->
+    <!--<input ng-model="model.widget.placeholder" class="form-control"/>-->
+    <!--Formatted-->
+    <!--<input ng-model="model.widget.formatted" type="checkbox"/>-->
+
+    <a class="btn btn-primary btn-block" ng-click="model.createWidget(model.widget)">
+        Create
+    </a>
+
+    <a class="btn btn-warning btn-block" ng-click="model.updateWidget(model.widget)">
+        Update
+    </a>
+
+    <a class="btn btn-danger btn-block" ng-click="model.deleteWidget(model.widgetId)">
+        Delete
+    </a>
+</div>
+
+<div ng-include="'views/common/footer.view.client.html'"></div>
