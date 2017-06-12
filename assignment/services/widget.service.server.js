@@ -2,7 +2,7 @@ var app = require('../../express');
 var multer = require('multer'); // npm install multer --save
 var upload = multer({ dest: __dirname+'/../../public/assignment/uploads'});
 
-app.get   ('/api/page/:pageId/widget', findAllWidgetsForPage);
+app.get   ('/api/page/:pageId/widget', findWidgetsByPageId);
 app.get   ('/api/widget/:widgetId', findWidgetById);
 app.post  ('/api/page/:pageId/widget', createWidget);
 app.put   ('/api/widget/:widgetId', updateWidget);
@@ -86,7 +86,7 @@ var widgets =
     }
 
 
-function findAllWidgetsForPage(req, res) {
+function findWidgetsByPageId(req, res) {
     var resultSet = [];
     for (var w in widgets) {
         if (widgets[w].pageId = req.params.pageId) {
