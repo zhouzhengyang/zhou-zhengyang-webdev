@@ -30,14 +30,5 @@ function deleteUser(userId) {
 function updateUser(userId, user) {
     return userModel.update(
         {_id: userId},
-        {
-            $set: {
-                firstName: user.firstName,
-                lastName: user.lastName,
-                email: user.email,
-                phone: user.phone,
-                password: user.password,
-                websites: user.websites
-            }
-        });
+        {$set: user});
 }

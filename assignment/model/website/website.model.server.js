@@ -3,14 +3,11 @@ var websiteSchema = require('./website.schema.server');
 
 var websiteModel = mongoose.model('websiteModel', websiteSchema);
 
-
-
 websiteModel.createWebsite = createWebsite;
 websiteModel.findAllWebsitesForUser = findAllWebsitesForUser;
 websiteModel.findWebsiteById = findWebsiteById;
 websiteModel.updateWebsite = updateWebsite;
 websiteModel.deleteWebsite = deleteWebsite;
-
 
 module.exports = websiteModel;
 

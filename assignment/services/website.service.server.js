@@ -20,16 +20,6 @@ function deleteWebsite(req, res) {
         );
 }
 
-// function deleteWebsite(req, res) {
-//     var websiteId = req.params['websiteId'];
-//     var website = websites.find(function (website) {
-//         return website._id === websiteId;
-//     });
-//     var index = websites.indexOf(website);
-//     websites.splice(index, 1);
-//     res.sendStatus(200);
-// }
-
 function findWebsiteById(req, res) {
     var websiteId = req.params['websiteId'];
     websiteModel
@@ -38,19 +28,8 @@ function findWebsiteById(req, res) {
             function (website) {
                 res.json(website);
             }
-            // function (err) {
-            //     res.status(400).send(err);
-            // }
         );
 }
-
-// function findWebsiteById(req, res) {
-//     var websiteId = req.params['websiteId'];
-//     var website = websites.find(function (website) {
-//         return website._id === websiteId;
-//     });
-//     res.send(website);
-// }
 
 function findAllWebsitesForUser(req, res) {
     websiteModel
@@ -84,15 +63,3 @@ function updateWebsite(req, res) {
             res.json(response);
         });
 }
-// function updateWebsite(req, res) {
-//     var website = req.body;
-//     var websiteId = req.params['websiteId'];
-//     for(var w in websites) {
-//         if(websiteId === websites[w]._id) {
-//             websites[w].description = website.description;
-//             websites[w].name = website.name;
-//             res.sendStatus(200);
-//         }
-//     }
-//     res.sendStatus(404);
-// }
