@@ -1,21 +1,26 @@
-var app = require('./express');
-var bodyParser = require('body-parser');
+var app          = require('./express');
+var bodyParser   = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
-var passport = require('passport')
+var passport     = require('passport');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
-//app.use(session({ secret: process.env.SESSION_SECRET }));
 
-var secret = "secret";
-if(process.env.SESSION_SECRET) {
-    secret = process.env.SESSION_SECRET;
-}
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
 
-app.use(session({ secret: secret }));
+// var secret = "secret";
+// if(process.env.SESSION_SECRET) {
+//     secret = process.env.SESSION_SECRET;
+// }
+//
+// app.use(session({ secret: secret }));
 
 
 app.use(passport.initialize());
