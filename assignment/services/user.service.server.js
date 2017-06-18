@@ -28,9 +28,12 @@ app.get('/auth/google/callback',
     }));
 
 var googleConfig = {
-    clientID     : "103478805331-mr3j1dn7ha8pjqbj5vet0m8g2o9606ck.apps.googleusercontent.com",//"process.env.GOOGLE_CLIENT_ID",
-    clientSecret : "7S_-mJ39iMxAUCkS2k-RUgRE",//"process.env.GOOGLE_CLIENT_SECRET",
-    callbackURL  : "http://localhost:3000/auth/google/callback"
+    clientID     : "103478805331-mr3j1dn7ha8pjqbj5vet0m8g2o9606ck.apps.googleusercontent.com",
+                    //"process.env.GOOGLE_CLIENT_ID",
+    clientSecret : "7S_-mJ39iMxAUCkS2k-RUgRE",
+                    //"process.env.GOOGLE_CLIENT_SECRET",
+    callbackURL  : "http://zhou-zhengyang-webdev.herokuapp.com/auth/google/callback"
+                    //"http://localhost:3000/auth/google/callback"
 };
 
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
