@@ -25,13 +25,14 @@
             } else {
                 var user = {
                     username: username,
-                    password: password
+                    password: password,
                 };
                 // model.message = user;
                 userService
-                    .createUser(user)
+                    //.createUser(user)
+                    .register(user)
                     .then(function (user) {
-                        $location.url('/user/' + user._id);
+                        $location.url('/profile');
                     });
             }
         }
