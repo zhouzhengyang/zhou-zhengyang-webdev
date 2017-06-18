@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var userSchema = mongoose.Schema({
-    facebook: {
+    google: {
         id:    String,
         token: String
     },

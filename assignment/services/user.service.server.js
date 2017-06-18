@@ -3,6 +3,7 @@ var bcrypt = require("bcrypt-nodejs");
 var userModel = require('../model/user/user.model.server');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 passport.use(new LocalStrategy(localStrategy));
 passport.serializeUser(serializeUser);
@@ -18,6 +19,58 @@ app.get   ('/api/checkAdmin', checkAdmin)
 app.post  ('/api/logout', logout);
 app.post  ('/api/register', register);
 app.delete('/api/unregister', unregister);
+
+app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        successRedirect: '/assignment/index.html#!/profile',
+        failureRedirect: '/assignment/index.html#!/login'
+    }));
+
+var googleConfig = {
+    clientID     : "103478805331-mr3j1dn7ha8pjqbj5vet0m8g2o9606ck.apps.googleusercontent.com",//"process.env.GOOGLE_CLIENT_ID",
+    clientSecret : "7S_-mJ39iMxAUCkS2k-RUgRE",//"process.env.GOOGLE_CLIENT_SECRET",
+    callbackURL  : "http://localhost:3000/auth/google/callback"
+};
+
+passport.use(new GoogleStrategy(googleConfig, googleStrategy));
+
+function googleStrategy(token, refreshToken, profile, done) {
+    userModel
+        .findUserByGoogleId(profile.id)
+        .then(
+            function(user) {
+                if(user) {
+                    return done(null, user);
+                } else {
+                    var email = profile.emails[0].value;
+                    var emailParts = email.split("@");
+                    var newGoogleUser = {
+                        username:  emailParts[0],
+                        firstName: profile.name.givenName,
+                        lastName:  profile.name.familyName,
+                        email:     email,
+                        google: {
+                            id:    profile.id,
+                            token: token
+                        }
+                    };
+                    return userModel.createUser(newGoogleUser);
+                }
+            },
+            function(err) {
+                if (err) { return done(err); }
+            }
+        )
+        .then(
+            function(user){
+                return done(null, user);
+            },
+            function(err){
+                if (err) { return done(err); }
+            }
+        );
+}
 
 function unregister(req, res) {
     userModel
@@ -48,24 +101,6 @@ function register(req, res) {
             });
         });
 }
-
-// function localStrategy(username, password, done) {
-//     userModel
-//         .findUserByCredentials(username, password)
-//         .then(
-//             function(user) {
-//                 if(user && bcrypt.compareSync(password, user.password)) {
-//                     return done(null, user);
-//                 } else {
-//                     return done(null, false);
-//                 }
-//                 return done(null, user);
-//             },
-//             function(err) {
-//                 if (err) { return done(err); }
-//             }
-//         );
-// }
 
 function localStrategy(username, password, done) {
     userModel

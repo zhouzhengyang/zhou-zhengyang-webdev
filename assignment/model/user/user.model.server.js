@@ -9,7 +9,7 @@ userModel.findUserByCredentials = findUserByCredentials;
 userModel.deleteUser = deleteUser;
 userModel.updateUser = updateUser;
 userModel.findAllUsers = findAllUsers;
-userModel.findUserByFacebookId = findUserByFacebookId;
+userModel.findUserByGoogleId = findUserByGoogleId;
 
 module.exports = userModel;
 
@@ -40,6 +40,6 @@ function findAllUsers() {
     return userModel.find();
 }
 
-function findUserByFacebookId(facebookId) {
-    return User.findOne({'facebook.id': facebookId});
+function findUserByGoogleId(googleId) {
+    return userModel.findOne({'google.id': googleId});
 }
