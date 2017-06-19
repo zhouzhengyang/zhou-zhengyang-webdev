@@ -32,6 +32,11 @@
 
         // implementation
         function createWebsite(website) {
+            var name = website.name;
+            if (name === null || name === '' || typeof name === 'undefined') {
+                model.message = "Invalid name!"
+                return
+            }
             website.developerId = model.userId;
             websiteService
                 .createWebsite(model.userId, website)

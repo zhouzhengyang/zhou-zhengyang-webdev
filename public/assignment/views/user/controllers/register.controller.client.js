@@ -20,7 +20,7 @@
 
             var found = null;//userService.findUserByUsername(username);
 
-            if(found !== null) {
+            if(found !== null || username === null) {
                 model.error = "Username is not available";
             } else {
                 var user = {

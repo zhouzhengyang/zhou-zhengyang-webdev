@@ -68,6 +68,11 @@
                     </div>
                 </li>
             </ul>
+
+            <div ng-show="model.message" class="alert alert-danger">
+                {{model.message}}
+            </div>
+
             <label for="name">Name</label>
             <input id="name"
                    ng-model="website.name"

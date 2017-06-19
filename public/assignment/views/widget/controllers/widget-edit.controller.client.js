@@ -27,6 +27,11 @@
         init();
 
         function createWidget(widget){
+            var name = widget.name;
+            if (name === null || name === '' || typeof name === 'undefined') {
+                model.message = "Invalid name!"
+                return
+            }
             widget.pageId = model.pageId;
             widgetService
                 .createWidget(model.pageId,widget)
@@ -44,6 +49,11 @@
         }
 
         function updateWidget(widget){
+            var name = widget.name;
+            if (name === null || name === '' || typeof name === 'undefined') {
+                model.message = "Invalid name!"
+                return
+            }
             widgetService
                 .updateWidget(model.widgetId, widget)
                 .then(function () {

@@ -25,6 +25,11 @@
 
         // implementation
         function createPage(page) {
+            var name = page.name;
+            if (name === null || name === '' || typeof name === 'undefined') {
+                model.message = "Invalid name!"
+                return
+            }
             page.websiteId = model.websiteId;
             pageService
                 .createPage(model.websiteId, page)
