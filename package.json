@@ -4,7 +4,6 @@
   "description": "Web Dev at Northeastern University",
   "main": "server.js",
   "dependencies": {
-//    "anilist-api-pt": "^1.0.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
