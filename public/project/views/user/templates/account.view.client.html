@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href="../../../../assignment/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../../css/project-style.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Title</title>
+</head>
+
+<body>
+
+<div class="container" id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="../../../index.html">
+                    Project Website
+                </a>
+            </li>
+            <li>
+                <a href="login.view.client.html">My Account</a>
+            </li>
+            <li>
+                <a href="#">Dashboard</a>
+            </li>
+            <li>
+                <a href="#">Search</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Page -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <label for="username">Username</label>
+                    <input readonly value="Your Username" id="username" class="form-control"/>
+
+                    <label for="password">Password</label>
+                    <input id="password" type="password" class="form-control" placeholder="please enter your password"/>
+
+                    <label for="vpassword">Verify Password</label>
+                    <input id="vpassword" type="password" class="form-control" placeholder="please verify your password"/>
+
+                    <label for="first">First</label>
+                    <input id="first"class="form-control" placeholder="please enter your first name"/>
+
+                    <label for="last">Last</label>
+                    <input id="last"class="form-control" placeholder="please enter your last name"/>
+
+                    <label for="email">Email</label>
+                    <input id="email" type="email" class="form-control" placeholder="please enter your email address"/>
+
+                    <a href="profile.view.client.html" class="btn btn-block btn-success">OK</a>
+                    <a href="#" class="btn btn-block btn-primary">Update</a>
+                    <a href="login.view.client.html" class="btn btn-block btn-danger">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
