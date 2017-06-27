@@ -11,6 +11,9 @@ Heroku to connect with this repository to generate Web App.
 # Project Proposal
 See Wiki
 
+# Project LINK
+https://github.com/zhouzhengyang/webdev-project
+
 # Links
 Root to the hosted environment on Heroku:  
 https://zhou-zhengyang-webdev.herokuapp.com/
